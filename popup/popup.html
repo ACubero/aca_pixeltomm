@@ -1,66 +1,84 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Convertidor de Unidades</title>
-    <link rel="stylesheet" href="../src/css/variables.css">
-    <link rel="stylesheet" href="../src/css/components.css">
-    <link rel="stylesheet" href="../src/css/main.css">
-    <link rel="icon" href="../assets/icons/favicon.ico">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Convertidor de Unidades</title>
+  <link rel="stylesheet" href="popup.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1 id="header-title">Convertidor de Unidades</h1>
-        </header>
-        <div class="content">
-            <div class="form-group">
-                <label for="from" id="label-from">Convertir de:</label>
-                <select id="from" class="form-control">
-                    <option value="px">Píxeles (px)</option>
-                    <option value="mm">Milímetros (mm)</option>
-                    <option value="cm">Centímetros (cm)</option>
-                </select>
-            </div>
-            
-            <div class="swap-btn" id="swapUnits">
-                <img src="../assets/images/swap-icon.svg" alt="Intercambiar unidades" width="20" height="20">
-            </div>
-            
-            <div class="form-group">
-                <label for="to" id="label-to">Convertir a:</label>
-                <select id="to" class="form-control">
-                    <option value="mm">Milímetros (mm)</option>
-                    <option value="cm">Centímetros (cm)</option>
-                    <option value="px">Píxeles (px)</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <label for="inputValue" id="label-value">Valor a convertir:</label>
-                <input type="number" id="inputValue" class="form-control" placeholder="Ingrese un valor..." step="any">
-            </div>
-            
-            <div class="form-group">
-                <div class="row">
-                    <div class="col">
-                        <label for="dpi" id="label-dpi">Resolución (DPI):</label>
-                        <input type="number" id="dpi" class="form-control" value="96" min="1">
-                    </div>
-                </div>
-            </div>
-            
-            <button id="convertBtn" class="btn btn-primary">Convertir</button>
-            
-            <div class="result" id="result">
-                <span id="result-label">Resultado:</span> <span id="resultValue"></span>
+  <div class="container">
+    <h1>Convertidor de Unidades Pro</h1>
+
+    <div class="input-group">
+      <label for="categoria">Categoría:</label>
+      <select id="categoria">
+        <option value="longitud">Longitud</option>
+        <option value="peso">Peso</option>
+        <option value="volumen">Volumen</option>
+        <option value="temperatura">Temperatura</option>
+      </select>
+    </div>
+
+    <div class="input-group">
+      <label for="valor">Valor:</label>
+      <input type="number" id="valor" placeholder="Introduce el valor">
+    </div>
+
+    <div class="input-group">
+      <label for="unidad-origen">De:</label>
+      <select id="unidad-origen">
+        <!-- Opciones dinámicas -->
+      </select>
+    </div>
+
+    <div class="input-group">
+      <label for="unidad-destino">A:</label>
+      <select id="unidad-destino">
+        <!-- Opciones dinámicas -->
+      </select>
+    </div>
+
+    <!-- PPI Input MOVIDO aquí -->
+    <div class="input-group" id="ppi-input-group">
+        <label for="ppi">PPI/PPP (para longitud):</label>
+        <input type="number" id="ppi" value="96">
+         <p id="ppi-message"></p>
+    </div>
+      <p id="ppi-info"></p>
+
+    <button id="convertir">
+        <!-- Icono de Convertir -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20"><path fill="none" d="M0 0h24v24H0z"/><path d="M8.618 13.443l2.145-2.146a.5.5 0 0 1 .764.14l1.32 1.98a.5.5 0 0 0 .764.14l4.386-4.387a.5.5 0 0 1 .764.14l1.06 1.06a.5.5 0 0 1 0 .707l-6.919 6.92a.5.5 0 0 1-.763.14l-6.12-4.37a.5.5 0 0 1 .14-.707zM6.444 9.324l6.12 4.37a.5.5 0 0 0 .763-.14l6.92-6.92a.5.5 0 0 0 0-.707l-1.06-1.06a.5.5 0 0 0-.764-.14L12.862 9.02a.5.5 0 0 1-.763-.14l-4.387-4.386a.5.5 0 0 0-.763-.14L5.382 5.382a.5.5 0 0 0-.14.707z"/></svg>
+      <span>Convertir</span>
+    </button>
+
+
+
+    <div class="resultado">
+        <h2>Resultado:</h2>
+        <div class="resultado-container">
+            <p id="resultado-valor"></p>
+            <div class="resultado-botones">
+                <button id="copiar" title="Copiar al portapapeles">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                        <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                    </svg>
+                </button>
+                <button id="reusar" title="Usar como valor inicial">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                        <path d="M12 6v3l4-4-4-4v3c-4.42 0-8 3.58-8 8 0 1.57.46 3.03 1.24 4.26L6.7 14.8c-.45-.83-.7-1.79-.7-2.8 0-3.31 2.69-6 6-6zm6.76 1.74L17.3 9.2c.44.84.7 1.79.7 2.8 0 3.31-2.69 6-6 6v-3l-4 4 4 4v-3c4.42 0 8-3.58 8-8 0-1.57-.46-3.03-1.24-4.26z"/>
+                    </svg>
+                </button>
             </div>
         </div>
+
     </div>
-    
-    <script src="../src/js/converter.js"></script>
-    <script src="../src/js/ui.js"></script>
-    <script src="../src/js/app.js"></script>
+
+     <!-- Botón Guardar ELIMINADO y funcionalidad integrada en JS -->
+
+  </div>
+
+  <script src="popup.js"></script>
 </body>
 </html>

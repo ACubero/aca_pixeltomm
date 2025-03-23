@@ -1,0 +1,161 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 10px; /* Reducido el padding general */
+    width: 400px;
+    /*  QUITAMOS la altura fija.  La altura se ajustará automáticamente. */
+}
+
+.container {
+    background-color: white;
+    padding: 15px; /* Reducido el padding del contenedor */
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;        /*  Hacemos el contenedor flexible */
+    flex-direction: column; /*  Apilamos los elementos verticalmente */
+    /*  min-height: 0;  <-  A veces necesario con flexbox, pero probemos sin él primero */
+}
+
+h1 {
+    text-align: center;
+    color: #4466aa;
+    margin-bottom: 10px; /* Reducido el margen inferior del título */
+}
+
+.input-group {
+    margin-bottom: 10px; /* Reducido el margen inferior de los grupos de entrada */
+}
+
+label {
+    display: block;
+    margin-bottom: 3px; /* Reducido el margen inferior de las etiquetas */
+    font-weight: bold;
+}
+
+input[type="number"],
+select {
+    width: 100%;
+    padding: 8px; /* Reducido el padding de los inputs y selects */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+/* Estilos para el botón Convertir */
+#convertir {
+    background-color: #4466aa;
+    color: white;
+    padding: 8px 15px; /* Reducido el padding del botón */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px; /*Anadimos margen superior*/
+}
+
+#convertir svg {
+    margin-right: 8px;
+    fill: currentColor;
+}
+
+#convertir:hover {
+    background-color: #335599;
+}
+
+/* Estilos para el área de resultado */
+.resultado {
+    margin-top: 10px; /* Reducido el margen superior */
+    text-align: center;
+    border-top: 1px solid #eee;
+    padding-top: 10px; /* Reducido el padding superior */
+     /*  Importante para que el resultado se ajuste bien */
+}
+
+.resultado h2 {
+    color: #4466aa;
+    margin-bottom: 5px; /* Reducido el margen inferior */
+    font-size: 1.2em;
+}
+
+/* Estilos para los botones de copiar y reusar */
+.resultado-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.resultado-botones {
+    margin-left: 10px;
+    display: flex;
+}
+
+.resultado-botones button {
+    background-color: #e6f0ff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 5px;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.resultado-botones button:hover {
+    background-color: #cce0ff;
+    border-color: #335599;
+}
+
+.resultado-botones button svg {
+    fill: #335599;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.resultado p {
+    font-size: 1.1em;
+    font-weight: bold;
+     margin: 5px 0; /* Reducido margen, importante para el ajuste */
+}
+
+/*Seccion PPI*/
+
+#ppi-input-group{
+     display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#ppi-input-group label{
+    white-space: nowrap;
+}
+#ppi {
+    flex: 1;
+}
+
+/*Estilo para la notificacion*/
+.notificacion-copiado{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 1000;
+}
+#ppi-info{
+    font-style: italic;
+    font-size: 0.9em;
+    color: #666;
+    margin: 5px 0; /*Anadido margen*/
+}
+.hidden{
+    display: none;
+}
