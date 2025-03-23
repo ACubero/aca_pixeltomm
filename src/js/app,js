@@ -1,0 +1,27 @@
+/**
+ * Punto de entrada de la aplicación
+ * Inicializa los componentes y la interfaz de usuario
+ */
+document.addEventListener('DOMContentLoaded', function() {
+    // Inicializar la interfaz de usuario
+    const ui = new UI();
+    
+    // Cargar configuraciones guardadas (si existen)
+    loadSavedSettings();
+    
+    /**
+     * Carga configuraciones guardadas en el almacenamiento local
+     */
+    function loadSavedSettings() {
+        // Cargar DPI guardado (si existe)
+        const savedDPI = localStorage.getItem('pixelConverter_dpi');
+        if (savedDPI) {
+            document.getElementById('dpi').value = savedDPI;
+        }
+        
+        // Guardar DPI cuando cambie
+        document.getElementById('dpi').addEventListener('change', function() {
+            localStorage.setItem('pixelConverter_dpi', this.value);
+        });
+    }
+});

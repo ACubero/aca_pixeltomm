@@ -1,0 +1,10 @@
+{
+    "appName": {
+      "message": "Unit Converter",
+      "description": "Extension name"
+    },
+    "appDesc": {
+      "message": "Easily convert between pixels, millimeters and centimeters",
+      "description": "Extension description"
+    }
+  }

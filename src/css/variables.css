@@ -1,0 +1,35 @@
+:root {
+    /* Colores */
+    --primary-color: #4a6cfa;
+    --primary-color-hover: #3a5ce0;
+    --secondary-color: #f5f7ff;
+    --text-color: #333;
+    --border-color: #ddd;
+    --background-color: #fff;
+    
+    /* Espaciado */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 20px;
+    --spacing-xl: 24px;
+    
+    /* Dimensiones */
+    --radius: 8px;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --input-height: 40px;
+    --container-width: 320px;
+    
+    /* Tipografía */
+    --font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+    --font-size-sm: 12px;
+    --font-size-md: 14px;
+    --font-size-lg: 16px;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 600;
+    
+    /* Transiciones */
+    --transition-fast: 0.2s;
+    --transition-medium: 0.3s;
+}

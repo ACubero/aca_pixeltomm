@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertidor de Unidades</title>
+    <link rel="stylesheet" href="../src/css/variables.css">
+    <link rel="stylesheet" href="../src/css/components.css">
+    <link rel="stylesheet" href="../src/css/main.css">
+    <link rel="icon" href="../assets/icons/favicon.ico">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 id="header-title">Convertidor de Unidades</h1>
+        </header>
+        <div class="content">
+            <div class="form-group">
+                <label for="from" id="label-from">Convertir de:</label>
+                <select id="from" class="form-control">
+                    <option value="px">Píxeles (px)</option>
+                    <option value="mm">Milímetros (mm)</option>
+                    <option value="cm">Centímetros (cm)</option>
+                </select>
+            </div>
+            
+            <div class="swap-btn" id="swapUnits">
+                <img src="../assets/images/swap-icon.svg" alt="Intercambiar unidades" width="20" height="20">
+            </div>
+            
+            <div class="form-group">
+                <label for="to" id="label-to">Convertir a:</label>
+                <select id="to" class="form-control">
+                    <option value="mm">Milímetros (mm)</option>
+                    <option value="cm">Centímetros (cm)</option>
+                    <option value="px">Píxeles (px)</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="inputValue" id="label-value">Valor a convertir:</label>
+                <input type="number" id="inputValue" class="form-control" placeholder="Ingrese un valor..." step="any">
+            </div>
+            
+            <div class="form-group">
+                <div class="row">
+                    <div class="col">
+                        <label for="dpi" id="label-dpi">Resolución (DPI):</label>
+                        <input type="number" id="dpi" class="form-control" value="96" min="1">
+                    </div>
+                </div>
+            </div>
+            
+            <button id="convertBtn" class="btn btn-primary">Convertir</button>
+            
+            <div class="result" id="result">
+                <span id="result-label">Resultado:</span> <span id="resultValue"></span>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../src/js/converter.js"></script>
+    <script src="../src/js/ui.js"></script>
+    <script src="../src/js/app.js"></script>
+</body>
+</html>
